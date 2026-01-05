@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 
 const ResetPassword = () => {
   const { backendUrl } = useContext(AppContent);
+  // eslint-disable-next-line react-hooks/immutability
   axios.defaults.withCredentials = true;
 
   const navigate = useNavigate();
