@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { useState } from "react";
 import axios from "axios";
 import { assets } from "../assets/assets";
@@ -132,7 +132,7 @@ const Login = () => {
             Don't have an account?{" "}
             <span
               onClick={() => {
-                setState("sign up");
+                setState("Sign up");
               }}
               className="text-blue-400 cursor-pointer underline"
             >

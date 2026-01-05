@@ -6,9 +6,10 @@ import { AppContent } from "../context/AppContext";
 import { toast } from "react-toastify";
 
 const EmailVerify = () => {
+  // eslint-disable-next-line react-hooks/immutability
   axios.defaults.withCredentials = true;
 
-  const { backendUrl, isLoggedin, userData, getUserData } =
+  const { backendUrl, isLoggedin, setIsLoggedin, getUserData } =
     useContext(AppContent);
   const navigate = useNavigate();
   const inputRefs = React.useRef([]);
@@ -40,25 +41,35 @@ const EmailVerify = () => {
       e.preventDefault();
       const otpArray = inputRefs.current.map((e) => e.value);
       const otp = otpArray.join("");
-
+      if (otp.length !== 6) {
+        return toast.error("Please enter a valid 6-digit OTP");
+      }
       const { data } = await axios.post(
         backendUrl + "/api/auth/verify-account",
         { otp }
       );
       if (data.success) {
         toast.success(data.message);
-        getUserData();
+        setIsLoggedin(true);
+        await getUserData();
         navigate("/");
       } else {
         toast.error(data.message);
       }
     } catch (error) {
-      toast.success(error.message);
+      toast.error(error.message);
     }
   };
   useEffect(() => {
-    isLoggedin && userData && userData.isAccountVerified && navigate("/");
-  }, [isLoggedin, userData]);
+    if (isLoggedin) {
+      navigate("/");
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isLoggedin]);
+
+  // useEffect(() => {
+  //   isLoggedin && userData && userData.isAccountVerified && navigate("/");
+  // }, [isLoggedin, userData]);
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-200 to-purple-400">
