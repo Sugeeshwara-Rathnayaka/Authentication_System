@@ -11,8 +11,10 @@ const port = process.env.PORT || 4000;
 
 connectDB();
 
-const allowedOrigins = ["http://localhost:3000",
-                       "https://mern-auth-sys.onrender.com"];
+const allowedOrigins = [
+  "http://localhost:3000", // dev frontend
+  "https://mern-auth-sys.onrender.com", // deployed frontend
+];
 
 app.use(cors({ origin: allowedOrigins, credentials: true }));
 app.use(express.json());
