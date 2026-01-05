@@ -11,7 +11,9 @@ const port = process.env.PORT || 4000;
 
 connectDB();
 
-app.use(cors({ credentials: true }));
+const allowedOrigins = ["http://localhost:3000"];
+
+app.use(cors({ origin: allowedOrigins, credentials: true }));
 app.use(express.json());
 app.use(cookieParser());
 
