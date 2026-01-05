@@ -21,26 +21,12 @@ A **full-stack MERN** authentication system featuring **JWT-based authentication
 - Responsive UI built with **Tailwind CSS**
 - Toast notifications for success/error messages
 - Cross-origin deployment ready
-- JWT handling for deployed environments (avoids 401 errors)
 
 ---
 
 ## 🌐 Live Demo
 
-- Frontend: [Your Frontend Link Here](#)
-- Backend: [Your Backend Link Here](#)
-
-_(Replace with your deployed Render / Netlify URLs)_
-
----
-
-## 🖼 Screenshots
-
-![Login](./screenshots/login.png)
-![OTP Verification](./screenshots/email-verify.png)
-![Reset Password](./screenshots/reset-password.png)
-
-_(Add your screenshots in `screenshots` folder)_
+- Frontend: [https://mern-auth-sys.onrender.com](#)
 
 ---
 
@@ -69,6 +55,13 @@ _(Add your screenshots in `screenshots` folder)_
 ### 1️⃣ Clone the repo
 
 ```bash
-git clone https://github.com/your-username/mern-auth-otp.git
-cd mern-auth-otp
+git clone https://github.com/Sugeeshwara-Rathnayaka/Authentication_System.git
+cd Authentication_System
+```
+
+### 2️⃣ Backend setup
+
+```bash
+cd backend
+npm install
 ```
